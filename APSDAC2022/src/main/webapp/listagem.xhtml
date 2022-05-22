@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head><title>Lista de Jogos</title></h:head>
+	<h:body>
+		<h:form id="formulario">
+		<p:messages id="messages" showDetail="true" closable="true">
+						<p:autoUpdate/>
+					</p:messages>
+			<p:panel header="Lista de Jogos">  
+		        <p:link outcome="index" value="Voltar"/>
+		        <p:dataTable value="#{jogoBean.lista}" var="j">
+		        	<p:column headerText="ID" visible="false"><p:outputLabel value="#{j.id}" /></p:column>
+		        	<p:column headerText="v1"><p:outputLabel value="#{j.v1}"/></p:column>
+		        	<p:column headerText="v2"><p:outputLabel value="#{j.v2}"/></p:column>
+		        	<p:column headerText="v3"><p:outputLabel value="#{j.v3}"/></p:column>
+		        	<p:column headerText="v4"><p:outputLabel value="#{j.v4}"/></p:column>
+		        	<p:column headerText="v5"><p:outputLabel value="#{j.v5}"/></p:column>
+		        	<p:column headerText="v6"><p:outputLabel value="#{j.v6}"/></p:column>
+		        	<p:column headerText="v7"><p:outputLabel value="#{j.v7}"/></p:column>
+		        	<p:column headerText="v8"><p:outputLabel value="#{j.v8}"/></p:column>
+		        	<p:column headerText="v9"><p:outputLabel value="#{j.v9}"/></p:column>
+		        	<p:column headerText="v10"><p:outputLabel value="#{j.v10}"/></p:column>
+		        	<p:column headerText="Descrição"><p:outputLabel value="#{j.descricao}"/></p:column>
+		        	<p:column headerText="Editar">
+		        		<h:commandLink action="editar" value="Editar">
+		        			<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        		</h:commandLink>
+		        	</p:column>
+		        	<p:column headerText="Excluir">
+		        		<h:commandLink action="excluir" value="Excluir">
+		        			<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        		</h:commandLink>
+		        	</p:column>
+
+		        </p:dataTable>
+			</p:panel>
+		</h:form>
+	</h:body>
+</html>
