@@ -9,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+//QUESTÃO A
 public class Jogo {
+	//QUESTÃO B
 	@Id
 	@GeneratedValue
 	private Integer Id;

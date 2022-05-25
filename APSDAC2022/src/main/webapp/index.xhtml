@@ -7,24 +7,21 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Cadastro de Lojas Shopping</title>
+<!-- 	//QUESTAO E -->
+	<title>Cadastro de Jogos</title>
 </h:head>
 <body>
 	<h:form id="formulario">
 		<p:messages id="messages" showDetail="true" closable="true">
-					<p:autoUpdate/>
-				</p:messages>
+			<p:autoUpdate/>
+		</p:messages>
+		
 		<p:panelGrid columns="2">
-		
-		<p:outputLabel value="Descrição: "/>
-		<p:inputText value="#{jogoBean.jogo.descricao}"></p:inputText>       
-		
-		<p:commandButton value="Incluir" action="#{jogoBean.salvar}" update="formulario"></p:commandButton>
-		<p:commandButton value="Listar" action="listagem" style="background-color: #696969; color:white"></p:commandButton>
-
-		
+			<p:outputLabel value="Descrição: "/>
+			<p:inputText value="#{jogoBean.jogo.descricao}"></p:inputText>       
+			<p:commandButton value="Incluir" action="#{jogoBean.salvar}" update="formulario"></p:commandButton>
+			<p:commandButton value="Listar" action="listagem" style="background-color: #696969; color:white"></p:commandButton>
 		</p:panelGrid>
 	</h:form>
-	
 </body>
 </html>
