@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head><title>Lista de Jogos</title></h:head>
+	<h:body>
+<!-- 		//QUESTAO F -->
+		<h:form id="formulario">
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate/>
+		</p:messages>		
+		
+		<p:panel header="Lista de Jogos">  
+			<p:link outcome="index" value="Voltar"/>
+		    <p:dataTable value="#{jogoBean.lista}" var="j">
+		     	<p:column headerText="ID"><p:outputLabel value="#{j.id}" /></p:column>
+		        <p:column headerText="Valores Aleatórios"><p:outputLabel value="#{j.v1},#{j.v2},#{j.v3},#{j.v4},#{j.v5},#{j.v6},#{j.v7},#{j.v8},#{j.v9},#{j.v10}"/></p:column>
+		        <p:column headerText="Descrição"><p:outputLabel value="#{j.descricao}"/></p:column>
+<!-- 		        //QUESTAO G -->
+		        <p:column headerText="Editar">
+		        	<p:commandLink action="editar">
+		        		<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        		<i class="pi pi-user-edit" style="font-size: 1.5rem"></i>
+		        	</p:commandLink>
+		        </p:column>	
+<!-- 		        //QUESTAO H -->
+		        <p:column headerText="Excluir">
+		        	<p:commandLink action="excluir">
+		        		<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        		<i class="pi pi-times-circle"  style="font-size: 1.5rem"></i>
+		        	</p:commandLink>
+		        </p:column>
+<!-- 		        //QUESTAO I -->
+		        <p:column headerText="Pares">
+		        	<h:commandLink action="#{jogoBean.veripar(j.id,1)}" value="Par">
+		        		<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        	</h:commandLink>
+		        </p:column>
+		        <p:column headerText="Ímparares">
+		        	<h:commandLink action="#{jogoBean.veripar(j.id,2)}" value="Ímpar">
+		        		<f:setPropertyActionListener value="#{j}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		        	</h:commandLink>
+		        </p:column>
+		       </p:dataTable>   
+			</p:panel>
+		</h:form>
+	</h:body>
+</html>
